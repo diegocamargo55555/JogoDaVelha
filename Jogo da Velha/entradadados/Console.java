@@ -12,13 +12,15 @@ import java.util.Scanner;
  */
 
 public class Console {
-    private final Scanner myobj;
+    private final Scanner myobj1;
+    private final Scanner myobj2;
 
 /**
  * Contrutor que inicializa a leitura.
  */
     public Console() {
-        myobj = new Scanner(System.in);
+        myobj1 = new Scanner(System.in);
+        myobj2 = new Scanner(System.in);
     }
 
 /**
@@ -28,7 +30,7 @@ public class Console {
  */
     public String LerDadosString(String mensagem){
         System.out.println(mensagem);
-        return myobj.nextLine();
+        return myobj1.nextLine();
     }
 
 /**
@@ -44,14 +46,14 @@ public class Console {
         
         while (true) { // Loop infinito até receber um valor válido
             try {
-                valor = myobj.nextInt(); // Tenta ler um valor inteiro
+                valor = myobj2.nextInt(); // Tenta ler um valor inteiro
                 if (valor < 1) {
                     throw new ValorNegativo("O valor não pode ser menor que 1 ."); // Lança exceção se o valor for negativo
                 }
                 return valor; // Retorna o valor se for válido e quebra o loop
             } catch (InputMismatchException e) { //Se o valor não for um inteiro
                 System.out.println("Entrada não é um valor inteiro! Tente novamente: ");
-                myobj.next(); // Limpa a entrada inválida
+                myobj2.next(); // Limpa a entrada inválida
             } catch (ValorNegativo ex) {
                 System.out.println(ex.getMessage() + " Tente novamente: ");
             }
