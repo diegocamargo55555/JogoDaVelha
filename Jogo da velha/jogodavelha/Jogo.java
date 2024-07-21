@@ -1,9 +1,12 @@
 package jogodavelha;
 import armazenamento.GerenciaJogadoresArquivo;
-import entrada_dados.Console;
+import entradadados.Console;
 import java.util.ArrayList;
 
 /**
+ * @author Giovana04
+ * @author diegocamargo55555
+ * @version 1.8.0_411
  * A classe Jogo gerencia a lógia principal do jogo da velha.
  */
 public class Jogo extends Tabuleiro{
@@ -13,6 +16,7 @@ public class Jogo extends Tabuleiro{
     Jogada jogada = new Jogada();
     GerenciaJogadoresArquivo arq = new GerenciaJogadoresArquivo();
     ArrayList<Jogador> jogadores = new ArrayList<>();
+    HistoricoJogos historico = new HistoricoJogos();
 
 /**
  * Serve para limpar o terminal.   
@@ -61,7 +65,13 @@ public class Jogo extends Tabuleiro{
             continua = Continuar();
         } while (continua);
 
-        System.out.println(continua);
+        int menu = console.LerDadosint("Deseja voltar ao menu <1> ou encerrar <2>? ");
+        if (menu == 1) {
+            // Aqui você pode reiniciar o jogo ou voltar ao menu
+        } else {
+            System.out.println("Encerrando o programa.");
+            System.exit(0);
+        }
     }
 
 /**
@@ -70,42 +80,44 @@ public class Jogo extends Tabuleiro{
  * @param j2 segundo jogador.
  * @param mapa tabuleiro do jogo.
  */
-    public void Jogando(Jogador j1, Jogador j2, Tabuleiro mapa){
-        boolean vencedor = false;
+public void Jogando(Jogador j1, Jogador j2, Tabuleiro mapa) {
+    boolean vencedor = false;
 
-        mapa.iniciaTabuleiro();
-        while (!vencedor && !tabuleiroCompleto(mapa)){
-            clear(); //Limpa a tela.
-            System.out.println(j1.getNome() + " ( " + j1.getSimbulo() + " ), sua vez! \n");
-            mapa.printTabuleiro(mapa);
-            jogada.mover(j1, mapa); //Move e marca no tabuleiro o símbolo do jogador 1.
-            vencedor = verificaVencedor(mapa);
-            if(vencedor){
-                System.out.println("Parabens " + j2.getNome()+ "!"); //Se o j1 vencer é mostrada a parabenização
-                j1.adicionarPonto(); //é inclementado o número de vitórias,
-                break; //em seguida a partida é encerrada.
-            }
-
-            if(tabuleiroCompleto(mapa)){ //Aqui verificamos se o jogo não terminou em empate
-                System.out.println("Jogo terminou em empate!");
-                break;
-            }
-
-            //Mesma lógica do jogador 1.
-            clear();
-            System.out.println(j2.getNome() + " ( " + j2.getSimbulo() + " ), sua vez! \n");
-            mapa.printTabuleiro(mapa);
-            jogada.mover(j2, mapa);
-            vencedor = verificaVencedor(mapa);
-            if(vencedor){
-                System.out.println("Parabens " + j2.getNome() + "!");
-                j2.adicionarPonto();
-                break;
-            }
+    mapa.iniciaTabuleiro();
+    while (!vencedor && !tabuleiroCompleto(mapa)) {
+        clear();
+        System.out.println(j1.getNome() + " ( " + j1.getSimbulo() + " ), sua vez! \n");
+        mapa.printTabuleiro(mapa);
+        jogada.mover(j1, mapa);
+        vencedor = verificaVencedor(mapa);
+        if (vencedor) {
+            System.out.println("Parabens " + j1.getNome() + "!");
+            j1.adicionarPonto();
+            historico.adicionarJogo(mapa); // Adiciona o jogo ao histórico
+            break;
         }
-        arq.pontuar(jogadores); //Atualiza a pontuação no arquivo.
-        arq.printPontos(jogadores); //Mostra a nova pontuação.
+
+        if (tabuleiroCompleto(mapa)) {
+            System.out.println("Jogo terminou em empate!");
+            historico.adicionarJogo(mapa); // Adiciona o jogo ao histórico
+            break;
+        }
+
+        clear();
+        System.out.println(j2.getNome() + " ( " + j2.getSimbulo() + " ), sua vez! \n");
+        mapa.printTabuleiro(mapa);
+        jogada.mover(j2, mapa);
+        vencedor = verificaVencedor(mapa);
+        if (vencedor) {
+            System.out.println("Parabens " + j2.getNome() + "!");
+            j2.adicionarPonto();
+            historico.adicionarJogo(mapa); // Adiciona o jogo ao histórico
+            break;
+        }
     }
+    arq.pontuar(jogadores);
+    arq.printPontos(jogadores);
+}
 
 /**
  * Verifica se houve um vencedor.
