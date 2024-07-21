@@ -1,6 +1,11 @@
 package armazenamento;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import jogodavelha.Jogador;
+import jogodavelha.Tabuleiro;
 
 /**
  * A classe GerenciaJogadoresArrayList gerencia a lista de jogadores usando um ArrayList.
@@ -34,4 +39,6 @@ public class GerenciaJogadoresArrayList implements GerenciaJogadores{
             System.out.println(j.get(i).getNome() + " pontos = " + j.get(i).getPontuacao());
         }
     }
+
+
 }

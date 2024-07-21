@@ -1,5 +1,7 @@
 package jogodavelha;
 import armazenamento.GerenciaJogadoresArquivo;
+import armazenamento.GerenciaJogadoresArrayList;
+import armazenamento.Historico;
 import entrada_dados.Console;
 import java.util.ArrayList;
 
@@ -13,6 +15,7 @@ public class Jogo extends Tabuleiro{
     Jogada jogada = new Jogada();
     GerenciaJogadoresArquivo arq = new GerenciaJogadoresArquivo();
     ArrayList<Jogador> jogadores = new ArrayList<>();
+    Historico hist = new Historico();
 
 /**
  * Serve para limpar o terminal.   
@@ -83,7 +86,9 @@ public class Jogo extends Tabuleiro{
             if(vencedor){
                 System.out.println("Parabens " + j2.getNome()+ "!"); //Se o j1 vencer é mostrada a parabenização
                 j1.adicionarPonto(); //é inclementado o número de vitórias,
+
                 break; //em seguida a partida é encerrada.
+
             }
 
             if(tabuleiroCompleto(mapa)){ //Aqui verificamos se o jogo não terminou em empate
@@ -103,6 +108,7 @@ public class Jogo extends Tabuleiro{
                 break;
             }
         }
+        hist.salvarHistoricoContinuo(mapa);
         arq.pontuar(jogadores); //Atualiza a pontuação no arquivo.
         arq.printPontos(jogadores); //Mostra a nova pontuação.
     }

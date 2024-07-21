@@ -3,12 +3,16 @@ package jogodavelha;
 import armazenamento.GerenciaJogadoresArquivo;
 import entrada_dados.Console;
 import armazenamento.GerenciaJogadoresArrayList;
+import armazenamento.Historico;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Testes {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
+        Historico hist = new Historico();
+
 
         Console console = new Console();
         Tabuleiro mapa = new Tabuleiro();
@@ -30,6 +34,9 @@ public class Testes {
         j1.adicionarPonto();
 
         j2.adicionarPonto();
+
+        hist.printMapaHistorico();
+
 
 
 
