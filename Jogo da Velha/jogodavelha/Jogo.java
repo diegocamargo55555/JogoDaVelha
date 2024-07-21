@@ -33,9 +33,9 @@ public class Jogo extends Tabuleiro{
     public void iniciarJovo(){
         String resposta;
 
-        resposta = console.LerDadosString("deseja continuar jogo(s/n)?");
+        resposta = console.LerDadosString("deseja continuar jogo(s/n)?").trim();
         
-        if("S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta)){ //Continua com os jogadores e pontuações anteriores
+        if("S".equalsIgnoreCase(resposta) || "Sim".equalsIgnoreCase(resposta)){ //Continua com os jogadores e pontuações anteriores
             Jogador j1 = new Jogador();
             Jogador j2 = new Jogador();
 
