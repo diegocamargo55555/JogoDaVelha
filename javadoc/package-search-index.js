@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"armazenamento"},{"l":"entrada_dados"},{"l":"exceptions"},{"l":"jogodavelha"}];updateSearchResults();
