@@ -47,6 +47,7 @@ public class Jogo extends Tabuleiro{
         }
         else{ //Novo jogo
             hist.resetHistoricoMapa();
+            jogadores.clear();
             if(!"n".equals(resposta) || !"Nao".equals(resposta)){
                 System.out.println("Como a resposta não foi afirmativa, o novo jogo será carregado.");
             }
@@ -64,7 +65,7 @@ public class Jogo extends Tabuleiro{
         boolean continua;
 
         do { 
-            Jogando(j1, j2, mapa);
+            Jogando(jogadores.getFirst(), jogadores.get(1), mapa);
             continua = Continuar();
         } while (continua);
 
@@ -206,4 +207,18 @@ public class Jogo extends Tabuleiro{
         return "S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta);
     }
     
+/**
+ * Carrega os dados do jogo a partir de uma lista de jogadores.
+ * @param j lista de jogadores.
+ */    
+    public void loadGame(ArrayList<Jogador> j){
+        String resposta;
+        resposta = console.LerDadosString("Deseja continuar jogo(s/n) ?");
+        if("S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta)){
+            arq.loadData(j);
+        }
+        else{
+            System.out.println("Como a resposta não foi positiva, será iniciado um novo jogo.");
+        }
+    }
 }
