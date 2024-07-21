@@ -6,7 +6,7 @@ import jogodavelha.Tabuleiro;
  * Classe de exceção personalizada para um mapa null ou com dimenções diferentes de 9x17.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class MapaError extends Exception {
     Tabuleiro map = new Tabuleiro();

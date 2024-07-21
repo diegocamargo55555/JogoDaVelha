@@ -6,7 +6,7 @@ import jogodavelha.Jogador;
  * A classe GerenciaJogadoresArrayList gerencia a lista de jogadores usando um ArrayList.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class GerenciaJogadoresArrayList implements GerenciaJogadores{
     ArrayList<Jogador> jogadores = new ArrayList<>();

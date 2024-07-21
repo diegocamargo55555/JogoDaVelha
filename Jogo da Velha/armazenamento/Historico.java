@@ -7,7 +7,7 @@ import jogodavelha.Tabuleiro;
  * A classe Historico é a funcionalidade extra do código, ela mostra o histórico das ultimas partidas jogadas.
  * 
  * O Historico funciona de forma simples, todo fim de jogo, tenha ele terminado em vitória ou empate, é feito uma leitura do tabuleiro
- * e cada um dos caracteres é armazenado em um arquivo txt. Esse arquivo pode ser acessado no menu do jogo "Histórico de partidas <2>".
+ * e cada um dos caracteres é armazenado em um arquivo txt. Esse arquivo pode ser acessado no menu do jogo "Histórico de partidas 2".
  * 
  * A funcionalidade foi pensada com o intuito de permitir que os jogadores possam discutir o processo das partidas anteriores, análisar 
  * as vitórias e os empates, estrátegias de jogo - mesmo que seja um jogo simples - ou só conversar sobre os resultados.
@@ -18,7 +18,7 @@ import jogodavelha.Tabuleiro;
  *  
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class Historico extends Tabuleiro {
     

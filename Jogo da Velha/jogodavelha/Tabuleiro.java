@@ -5,7 +5,7 @@ import exceptions.MapaError;
  * A classe Tabuleiro faz a inicialização e o funcionamento do tabuleiro do jogo.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class Tabuleiro {
     public char[][] map;

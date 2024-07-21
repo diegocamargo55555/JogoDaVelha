@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * A classe Jogo gerencia a lógia principal do jogo da velha.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class Jogo extends Tabuleiro{
 
@@ -30,14 +30,14 @@ public class Jogo extends Tabuleiro{
 /**
  * Inicia o jogo da velha, havendo a opção de carregar os dados anteriores ou iniciar um novo jogo.
  */
-    public void iniciarJovo(){
+    public void iniciarJogo(){
         String resposta;
         Jogador j1 = new Jogador();
         Jogador j2 = new Jogador();
         j1.setSimbolo('O');
         j2.setSimbolo('X');
 
-        resposta = console.LerDadosString("Deseja continuar jogo(s/n)?").trim();
+        resposta = console.lerDadosString("Deseja continuar jogo(s/n)?").trim();
         
         if("S".equalsIgnoreCase(resposta) || "Sim".equalsIgnoreCase(resposta)){ //Continua com os jogadores e pontuações anteriores
             jogadores.add(j1);
@@ -52,10 +52,10 @@ public class Jogo extends Tabuleiro{
                 System.out.println("Como a resposta não foi afirmativa, o novo jogo será carregado.");
             }
 
-            j1.setNome(console.LerDadosString("\nQual o nome do jogador 1? ( O ) "));
+            j1.setNome(console.lerDadosString("\nQual o nome do jogador 1? ( O ) "));
             jogadores.add(j1);
 
-            j2.setNome(console.LerDadosString("\nQual o nome do jogador 2? ( X ) "));
+            j2.setNome(console.lerDadosString("\nQual o nome do jogador 2? ( X ) "));
             jogadores.add(j2);
             System.out.println("j1:" + j1.getNome() + "\nj2:" + j2.getNome());
         }
@@ -64,15 +64,15 @@ public class Jogo extends Tabuleiro{
 
         boolean continua;
 
-        do { 
-            Jogando(jogadores.getFirst(), jogadores.get(1), mapa);
-            continua = Continuar();
+        do {
+            jogando(jogadores.getFirst(), jogadores.get(1), mapa);
+            continua = continuar();
         } while (continua);
 
         //Voltar ao menu ou encerrar o programa.
         int menu;
         do { 
-            menu = console.LerDadosint("Deseja voltar ao menu <1> ou encerrar <2>? ");
+            menu = console.lerDadosint("Deseja voltar ao menu <1> ou encerrar <2>? ");
             switch (menu) {
             // volta pro menu.
                 case 1:
@@ -93,7 +93,7 @@ public class Jogo extends Tabuleiro{
  * @param j2 segundo jogador.
  * @param mapa tabuleiro do jogo.
  */
-    public void Jogando(Jogador j1, Jogador j2, Tabuleiro mapa){
+    public void jogando(Jogador j1, Jogador j2, Tabuleiro mapa){
         boolean vencedor = false;
 
         mapa.iniciaTabuleiro();
@@ -201,9 +201,9 @@ public class Jogo extends Tabuleiro{
  * Verifica se, após o termino de um jogo, os jogadores querem jogar novamente.
  * @return true se a resposta for positiva, false caso o contrário.
  */
-    public boolean Continuar(){
+    public boolean continuar(){
         String resposta;
-        resposta = console.LerDadosString("Deseja jogar novamente?'S' ou 'N'\n Se a resposta não for positiva, poderá voltar ao menu ou encerrar o aplicativo.");
+        resposta = console.lerDadosString("Deseja jogar novamente?'S' ou 'N'\n Se a resposta não for positiva, poderá voltar ao menu ou encerrar o aplicativo.");
         return "S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta);
     }
     
@@ -213,7 +213,7 @@ public class Jogo extends Tabuleiro{
  */    
     public void loadGame(ArrayList<Jogador> j){
         String resposta;
-        resposta = console.LerDadosString("Deseja continuar jogo(s/n) ?");
+        resposta = console.lerDadosString("Deseja continuar jogo(s/n) ?");
         if("S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta)){
             arq.loadData(j);
         }

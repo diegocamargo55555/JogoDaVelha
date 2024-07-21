@@ -7,7 +7,8 @@ import jogodavelha.Jogador;
  * A interface GerenciaJogadores pré-define os métodos para gerenciar os pontos dos jogadores.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
+ * @version
  */
 public interface GerenciaJogadores {
 

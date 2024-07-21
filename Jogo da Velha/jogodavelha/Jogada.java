@@ -6,7 +6,7 @@ import entradadados.Console;
  * A classe Jogada gerencia a movimentação dos jogadores.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411 
+ * @version 21.0.3
  */
 public class Jogada{
 
@@ -30,8 +30,8 @@ public class Jogada{
         Jogo tabuleiro = new Jogo();
         
         do { 
-            linha = console.LerDadosint("Informe a linha desejada (1 a 3): ");
-            coluna = console.LerDadosint("Informe a coluna desejada (1 a 3): ");
+            linha = console.lerDadosint("Informe a linha desejada (1 a 3): ");
+            coluna = console.lerDadosint("Informe a coluna desejada (1 a 3): ");
         } while (!tabuleiro.marcar(linha, coluna, j.getSimbulo(), mapa));
         
     }

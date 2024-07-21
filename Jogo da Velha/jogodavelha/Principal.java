@@ -7,7 +7,7 @@ import entradadados.*;
  * A classe Principal contém o método main e dá início ao jogo.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 public class Principal {
 
@@ -25,13 +25,13 @@ public class Principal {
             clear();
             int opc = menu();
             switch (opc) {
-                case 1 -> jogo.iniciarJovo();
+                case 1 -> jogo.iniciarJogo();
                 case 2 -> {
                     clear();
                     historico.printMapaHistorico();// Mostra o histórico dos últimos jogos.
                     int menu;
                     do {
-                        menu = console.LerDadosint("Deseja voltar ao menu <1> ou encerrar <2>? "); 
+                        menu = console.lerDadosint("Deseja voltar ao menu <1> ou encerrar <2>? ");
                         switch (menu) {
                         // volta pro menu.
                             case 1:
@@ -69,7 +69,7 @@ public class Principal {
         System.out.println("2. Histórico de Partidas");
         System.out.println("3. Encerrar");
 
-        opc = console.LerDadosint("Escolha uma opção: ");
+        opc = console.lerDadosint("Escolha uma opção: ");
         return opc;
     }
 

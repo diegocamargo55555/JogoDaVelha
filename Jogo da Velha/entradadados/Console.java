@@ -8,7 +8,7 @@ import java.util.Scanner;
  * A Classe console tem os métodos para ler dois tipos de entrada do usuário.
  * @author Giovana04
  * @author diegocamargo55555
- * @version 1.8.0_411
+ * @version 21.0.3
  */
 
 public class Console {
@@ -28,7 +28,7 @@ public class Console {
  * @param mensagem mostra mensagem a ser exibida antes de aceitar uma entrada.
  * @return A string digitada pelo usuário.
  */
-    public String LerDadosString(String mensagem){
+    public String lerDadosString(String mensagem){
         System.out.println(mensagem);
         return myobj1.nextLine();
     }
@@ -40,7 +40,7 @@ public class Console {
  * @return o valor inteiro válido digitado pelo usuário.
  * @throws ValorNegativo se o valor digitado for negativo ou igual a zero.
  */    
-    public int LerDadosint(String mensagem){
+    public int lerDadosint(String mensagem){
         int valor;
         System.out.println(mensagem);
         
