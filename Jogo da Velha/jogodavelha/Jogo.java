@@ -45,6 +45,7 @@ public class Jogo extends Tabuleiro{
             System.out.println("j1:" + j1.getNome()+ ", pontos: " + j1.getPontuacao() + "\nj2:" + j2.getNome() + ", pontos: " + j2.getPontuacao());
         }
         else{ //Novo jogo
+            hist.resetHistoricoMapa();
             if(!"n".equals(resposta)){
                 System.out.println("Como a resposta não foi afirmativa, o jogo será reiniciado.");
             }

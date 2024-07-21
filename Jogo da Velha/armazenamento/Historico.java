@@ -12,21 +12,10 @@ import jogodavelha.Tabuleiro;
 public class Historico extends Tabuleiro {
     
 /**
- * Salva um novo tabuleiro no arquivo de histórico.
- * @param mapa o tabuleiro a ser salvo
+ * reseta o arquivo historico.txt.
  */
-    public void salvarNovoTabuleiro(Tabuleiro mapa) {
+    public void resetHistoricoMapa() {
         try (FileWriter fw = new FileWriter("historico.txt")) {
-            //Percorre a matriz e salva cada caracter no txt.
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 17; j++) {
-                    fw.write(mapa.map[i][j]);
-                }
-                // Adiciona uma nova linha após cada linha do tabuleiro.
-                fw.write('\n');
-            }
-            // Adiciona uma linha em branco para separar diferentes tabuleiros.
-            fw.write('\n');
         } catch (IOException exc) {
             System.out.println("I/O Error: " + exc);
         }
