@@ -206,18 +206,4 @@ public class Jogo extends Tabuleiro{
         return "S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta);
     }
     
-/**
- * Carrega os dados do jogo a partir de uma lista de jogadores.
- * @param j lista de jogadores.
- */    
-    public void loadGame(ArrayList<Jogador> j){
-        String resposta;
-        resposta = console.LerDadosString("Deseja continuar jogo(s/n) ?");
-        if("S".equals(resposta) || "Sim".equals(resposta) || "s".equals(resposta) || "sim".equals(resposta)){
-            arq.loadData(j);
-        }
-        else{
-            System.out.println("Como a resposta não foi positiva, será iniciado um novo jogo.");
-        }
-    }
 }
